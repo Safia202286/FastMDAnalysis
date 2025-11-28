@@ -1,0 +1,5 @@
+cluster:
+  methods: hierarchical
+dimred:
+  methods: pca
+
