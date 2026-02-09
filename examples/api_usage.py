@@ -82,6 +82,32 @@ def main():
     print("SASA plots saved to:", sasa_plots)
     
     # ---------------------------
+    # Run Dihedral Angle Analysis (Phi, Psi, Omega)
+    # ---------------------------
+    phi_analysis = fastmda.phi()
+    print("Phi Data:", phi_analysis.data.shape)
+    phi_plot_file = phi_analysis.plot()
+    print("Phi plot saved to:", phi_plot_file)
+    
+    psi_analysis = fastmda.psi()
+    print("Psi Data:", psi_analysis.data.shape)
+    psi_plot_file = psi_analysis.plot()
+    print("Psi plot saved to:", psi_plot_file)
+    
+    omega_analysis = fastmda.omega()
+    print("Omega Data:", omega_analysis.data.shape)
+    omega_plot_file = omega_analysis.plot()
+    print("Omega plot saved to:", omega_plot_file)
+    
+    # ---------------------------
+    # Run Combined Dihedral Analysis with Ramachandran Plot
+    # ---------------------------
+    dihedrals_analysis = fastmda.dihedrals()
+    print("Dihedrals Data keys:", list(dihedrals_analysis.data.keys()))
+    ramachandran_plot = dihedrals_analysis.plot()
+    print("Ramachandran plot saved to:", ramachandran_plot)
+
+    # ---------------------------
     # Run Dimensionality Reduction Analysis (using PCA and t-SNE)
     # ---------------------------
     dimred_analysis = fastmda.dimred(methods=["pca", "tsne"], atoms="protein and name CA")
